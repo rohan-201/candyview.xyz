@@ -139,7 +139,7 @@ export default function Home() {
             color="white"
             w="1.5rem" h="1.5rem" ml="0.5rem"
             cursor="pointer"
-            onClick={searchCandy} />
+            onClick={() => searchCandy()} />
             
           <Input
             zIndex={2}
