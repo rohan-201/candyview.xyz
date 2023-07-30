@@ -193,7 +193,7 @@ export default function Home() {
               p="1rem"
               boxShadow="md"
             >
-              <SearchIcon className="searchIcon" color="#6e92ff" w="2rem" h="2rem" ml="0.5rem" cursor="pointer" onClick={searchCandy} />
+              <SearchIcon className="searchIcon" color="#6e92ff" w="2rem" h="2rem" ml="0.5rem" cursor="pointer" onClick={() => searchCandy()} />
               <Input
                 ml="1rem"
                 className="modalinput"
