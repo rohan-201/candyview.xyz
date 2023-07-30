@@ -29,14 +29,14 @@ export default function Home() {
   useEffect(() => {
     onClose()
     const run = async () => {
-      await searchCandy()
+      await searchCandy(false)
 
     }
     run()
   }, [selectedNetwork])
 
 
-  const searchCandy = async () => {
+  const searchCandy = async (notOpen?: boolean) => {
     setShowMore(false)
     setError('')
     setCmData(undefined)
@@ -58,14 +58,21 @@ export default function Home() {
         CreatorCount: candyMachine.data.creators.length,
         TokenStandard: candyMachine.tokenStandard
       });
+
+      if(!notOpen){
+      
       onOpen()
+    }
     } catch (e: any) {
       if (e.toString().includes("[AccountNotFoundError] The account of type [CandyMachine]")) {
         setError(`Candy machine not found on ${selectedNetwork}. Perhaps it is on other network?`)
       } else {
         setError(e.toString())
       }
-      onOpen()
+      if(!notOpen){
+      
+        onOpen()
+      }
       console.log('Error getting CM: ', e.toString());
     }
   };
