@@ -35,7 +35,7 @@ export default function Home() {
     run()
   }, [selectedNetwork])
 
-
+// @ts-ignore 
   const searchCandy = async (notOpen?: boolean) => {
     setShowMore(false)
     setError('')
@@ -58,7 +58,7 @@ export default function Home() {
         CreatorCount: candyMachine.data.creators.length,
         TokenStandard: candyMachine.tokenStandard
       });
-
+// @ts-ignore 
       if(!notOpen){
       
       onOpen()
@@ -69,6 +69,7 @@ export default function Home() {
       } else {
         setError(e.toString())
       }
+      // @ts-ignore 
       if(!notOpen){
       
         onOpen()
@@ -139,6 +140,7 @@ export default function Home() {
             w="1.5rem" h="1.5rem" ml="0.5rem"
             cursor="pointer"
             onClick={searchCandy} />
+            
           <Input
             zIndex={2}
             h="3.5rem"
@@ -159,6 +161,7 @@ export default function Home() {
             fontSize="1.5rem"
             onChange={(event) => setSearchValue(event.target.value)}
           />
+          
         </form>
 
       </Flex>
