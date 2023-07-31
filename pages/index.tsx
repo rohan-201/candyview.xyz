@@ -27,16 +27,15 @@ export default function Home() {
 
 
   useEffect(() => {
-    onClose()
     const run = async () => {
-      await searchCandy(false)
+      await searchCandy(true)
 
     }
     run()
   }, [selectedNetwork])
 
-// @ts-ignore 
-  const searchCandy = async (notOpen?: boolean) => {
+
+  const searchCandy = async (stopPopup?: boolean) => {
     setShowMore(false)
     setError('')
     setCmData(undefined)
@@ -58,20 +57,16 @@ export default function Home() {
         CreatorCount: candyMachine.data.creators.length,
         TokenStandard: candyMachine.tokenStandard
       });
-// @ts-ignore 
-      if(!notOpen){
-      
-      onOpen()
-    }
+      if (!stopPopup) {
+        onOpen()
+      }
     } catch (e: any) {
       if (e.toString().includes("[AccountNotFoundError] The account of type [CandyMachine]")) {
         setError(`Candy machine not found on ${selectedNetwork}. Perhaps it is on other network?`)
       } else {
         setError(e.toString())
       }
-      // @ts-ignore 
-      if(!notOpen){
-      
+      if (!stopPopup) {
         onOpen()
       }
       console.log('Error getting CM: ', e.toString());
@@ -140,7 +135,6 @@ export default function Home() {
             w="1.5rem" h="1.5rem" ml="0.5rem"
             cursor="pointer"
             onClick={() => searchCandy()} />
-            
           <Input
             zIndex={2}
             h="3.5rem"
@@ -161,7 +155,6 @@ export default function Home() {
             fontSize="1.5rem"
             onChange={(event) => setSearchValue(event.target.value)}
           />
-          
         </form>
 
       </Flex>

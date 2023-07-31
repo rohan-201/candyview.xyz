@@ -17,7 +17,7 @@ export const Navbar = () => {
 
             <Flex gap="2rem" color="#696767">
                 <a href="https://twitter.com/candyview_xyz" target="_blank">TWITTER</a>
-                <a href="https://github.com/rohan-201/candyview.xyz" target="_blank">GITHUB</a>
+                <a href="https://github.com/rohan-201/candyview" target="_blank">GITHUB</a>
                 <a href="https://docs.metaplex.com/programs/candy-machine/" target="_blank">CANDY MACHINE</a>
             </Flex>
         </Flex>
